@@ -117,6 +117,7 @@ export default function DocsPage() {
           </div>
           <ResonanceWaveChart2 frequency={963} />
         </div>
+           </div>
       </section>
 
       <section className="mt-8 grid gap-5 lg:grid-cols-[280px_minmax(0,1fr)]">
