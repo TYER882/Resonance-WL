@@ -21,7 +21,7 @@ export function Footer() {
     </div>
 
     <div className="flex flex-wrap gap-5">
-      <Link href="/waitlist" className="hover:text-(--accent)">
+      <Link href="/" className="hover:text-(--accent)">
         Waitlist
       </Link>
 
