@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { Activity, Archive, Atom, Database, FileCode2, Pickaxe, RadioTower, ShieldCheck, Zap } from "lucide-react";
 import { FormulaPanel } from "@/components/FormulaPanel";
-import { ResonanceWaveChart } from "@/components/ResonanceWaveChart2";
+import { ResonanceWaveChart2 } from "@/components/ResonanceWaveChart2";
+import { ResonanceWaveChart } from "@/components/ResonanceWaveChart";
+
 import GoldWaveLoader from "@/components/GoldWaveLoader";
 const sections = [
   {
@@ -105,7 +107,15 @@ export default function DocsPage() {
               </Link>
             </div>
           </div>
-          <ResonanceWaveChart frequency={963} />
+          <div className="glass-panel overflow-hidden rounded-[2rem] p-3">
+<div className="block md:hidden">
+<ResonanceWaveChart frequency={963} />
+</div>
+{/* Tablet + desktop animation */}
+  <div className="hidden md:block">
+<ResonanceWaveChart2 frequency={963} />
+          </div>
+          <ResonanceWaveChart2 frequency={963} />
         </div>
       </section>
 

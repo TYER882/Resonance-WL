@@ -13,7 +13,7 @@ const ambientLines = [
   "M0 112 C80 92 142 132 222 108 S362 84 450 110 560 134 640 106",
 ];
 
-export function ResonanceWaveChart({
+export function ResonanceWaveChart2({
   frequency,
 }: {
   frequency?: number;
