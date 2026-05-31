@@ -1,9 +1,8 @@
-// app/page.tsx
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CinematicCountdown } from "@/components/waitlist/CinematicCountdown";
 import { REPowerExplainer } from "@/components/waitlist/REPowerExplainer";
-import { SandSettleAnimation } from "@/components/waitlist/SandSettleAnimation2";
+import { SandSettleAnimation } from "@/components/waitlist/SandSettleAnimation";
 import { WaitlistForm } from "@/components/waitlist/WaitlistForm";
 import { WaitlistStatsPanel } from "@/components/waitlist/WaitlistStatsPanel";
 
