@@ -17,7 +17,7 @@ type Particle = {
   phase: number;
 };
 
-export function SandSettleAnimation({
+export function SandSettleAnimation2({
   particleCount = 1500,
   intensity = "medium",
   mode = "ring",

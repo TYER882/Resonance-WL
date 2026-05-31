@@ -3,8 +3,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CinematicCountdown } from "@/components/waitlist/CinematicCountdown";
 import { REPowerExplainer } from "@/components/waitlist/REPowerExplainer";
-import { SandSettleAnimation } from "@/components/waitlist/SandSettleAnimation2";
+import { SandSettleAnimation } from "@/components/waitlist/SandSettleAnimation";
+import { SandSettleAnimation2 } from "@/components/waitlist/SandSettleAnimation2";
+
 import { WaitlistForm } from "@/components/waitlist/WaitlistForm";
+
 import { WaitlistStatsPanel } from "@/components/waitlist/WaitlistStatsPanel";
 
 const targetDate = process.env.NEXT_PUBLIC_WAITLIST_TARGET_DATE || "2026-06-30T12:00:00Z";
@@ -33,29 +36,62 @@ export default function WaitlistPage() {
   return (
     <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <section className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-        <div>
-          <p className="font-display text-xs font-bold uppercase tracking-[0.34em] text-[var(--accent)]">RE Native Power Queue</p>
-          <h1 className="mt-4 max-w-4xl font-display text-5xl font-black uppercase text-[var(--text)] md:text-7xl">Enter the Resonance Queue</h1>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--muted)]">
-            Join the early access list for Resonance Genesis, where Chladni Nodes become miner artifacts powered by RE native resonance energy.
-          </p>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <a href="#join" className="inline-flex justify-center rounded-full px-6 py-3 font-black theme-button">
-              Join Waiting List
-            </a>
-            <Link href="/docs" className="inline-flex justify-center rounded-full px-6 py-3 font-black theme-button-secondary">
-              Read the Chladni Node Docs
-            </Link>
-          </div>
-          <div className="mt-8">
-            <CinematicCountdown targetDate={targetDate} />
-          </div>
-        </div>
-        <div className="glass-panel overflow-hidden rounded-[2rem] p-3">
-          <SandSettleAnimation particleCount={420} intensity="medium" mode="node" />
-        </div>
-      </section>
+<section className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+  <div>
+    <p className="font-display text-xs font-bold uppercase tracking-[0.34em] text-[var(--accent)]">
+      RE Native Power Queue
+    </p>
+
+    <h1 className="mt-4 max-w-4xl font-display text-5xl font-black uppercase text-[var(--text)] md:text-7xl">
+      Enter the Resonance Queue
+    </h1>
+
+    <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--muted)]">
+      Join the early access list for Resonance Genesis, where Chladni Nodes
+      become miner artifacts powered by RE native resonance energy.
+    </p>
+
+    <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+      <a
+        href="#join"
+        className="inline-flex justify-center rounded-full px-6 py-3 font-black theme-button"
+      >
+        Join Waiting List
+      </a>
+
+      <Link
+        href="/docs"
+        className="inline-flex justify-center rounded-full px-6 py-3 font-black theme-button-secondary"
+      >
+        Read the Chladni Node Docs
+      </Link>
+    </div>
+
+    <div className="mt-8">
+      <CinematicCountdown targetDate={targetDate} />
+    </div>
+  </div>
+
+  <div className="glass-panel overflow-hidden rounded-[2rem] p-3">
+    {/* Mobile: lighter animation */}
+    <div className="block h-[320px] md:hidden">
+      <SandSettleAnimation
+        particleCount={220}
+        intensity="low"
+        mode="wave"
+      />
+    </div>
+
+    {/* Mid/Desktop: richer animation */}
+    <div className="hidden h-[520px] md:block xl:h-[620px]">
+      <SandSettleAnimation2
+        particleCount={620}
+        intensity="medium"
+        mode="node"
+      />
+    </div>
+  </div>
+</section>
 
       <section id="join" className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
         <WaitlistForm />
